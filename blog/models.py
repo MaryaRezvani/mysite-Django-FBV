@@ -14,7 +14,9 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True) #2023-08-06 16:46:49.551083
                                                        #2023-08-06 16:49:39.379821
-    
+    def __str__(self):
+        return "{} - {}".format(self.title,self.id)
+        
 
     
 
