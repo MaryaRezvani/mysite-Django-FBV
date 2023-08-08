@@ -112,7 +112,7 @@
 						<div class="feature-img">
 							<img class="img-fluid" src="{% static 'img/blog/feature-img1.jpg' %}" alt="">
 						</div>
-						<a class="posts-title" href="#">
+						<a class="posts-title" href="{% url 'blog:single' pid=post.id %}">
 							<h3>{{post.title}}</h3>
 						</a>
 						<p class="excert">
@@ -157,7 +157,7 @@
 						</form>
 					</div>
 					<div class="single-sidebar-widget user-info-widget">
-						<img src="{% static 'img/blog/user-info.png" alt="">
+						<img src="{% static 'img/blog/user-info.png' %}" alt="">
 						<a href="#">
 							<h4>Charlie Barber</h4>
 						</a>
