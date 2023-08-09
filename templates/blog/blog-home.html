@@ -88,21 +88,20 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 posts-list">
-				{% for post in posts %}
+			{% for post in posts %}
 				<div class="single-post row">
 					<div class="col-lg-3  col-md-3 meta-details">
 						<ul class="tags">
-							{{post.category.all|join:", "}}
-							<!--- {% for cat in post.category.all %} --->
-							
-							<!--- <li><a href="#">{{cat.name}},</a></li> --->
-							<!--- {% endfor %} --->
-							
+
+							{% for cat in post.category.all %}
+								<a href="#">{{cat}}</a>{% if not forloop.last %},{% endif %}
+							{% endfor %}
+
 						</ul>
 						<div class="user-details row">
 							<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{post.author.get_full_name}}</a> <span
 									class="lnr lnr-user"></span></p>
-							<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{post.published_date}}</a> <span
+							<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{post.published_date|date:"d M Y"}}</a> <span
 									class="lnr lnr-calendar-full"></span></p>
 							<p class="view col-lg-12 col-md-12 col-6"><a href="#">{{post.counted_views}}</a> <span
 									class="lnr lnr-eye"></span></p>
@@ -123,7 +122,7 @@
 						<a href="#" class="primary-btn">View More</a>
 					</div>
 				</div>
-				{% endfor %}
+			{% endfor %}
 
 				<nav class="blog-pagination justify-content-center d-flex">
 					<ul class="pagination">
@@ -323,6 +322,5 @@
 		</div>
 	</div>
 </section>
-<!-- End post-content Area -->
-
 {% endblock %}
+<!-- End post-content Area -->
