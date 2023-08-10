@@ -11,7 +11,7 @@
     <!-- <p>{{post.title}}</p> -->
     <p>test:  {% posts as totalpost %}</p>
     {% for post in totalpost %}
-       <P>{{post}}</P>
+       <P>{{post.content|snippet}}</P>
     {% endfor %}
 </body>
 </html>
