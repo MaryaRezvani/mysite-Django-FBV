@@ -13,10 +13,10 @@ def function():
     return posts
 
 @register.filter
-def snippet(value,arg=20):
-    return value[:arg]
+def snippet(value):
+    return value[:20]
 
-@register.inclusion_tag('popularpost.html')
-def popularpost():
-    posts = Post.objects.filter(status=1).order_by('published_date')[:1]
+@register.inclusion_tag('blog/blog-popular-posts.html')
+def latestposts(arg=3):
+    posts = Post.objects.filter(status=1).order_by('published_date')[:arg]
     return {'posts':posts}
