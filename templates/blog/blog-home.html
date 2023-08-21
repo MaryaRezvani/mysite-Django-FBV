@@ -1,6 +1,6 @@
 {% extends 'website/base.html' %}
 {% load static %}
-
+{% load blog-tags %}
 {% block content %}
 <!-- start banner Area -->
 <section class="banner-area relative blog-home-banner" id="home">
@@ -160,6 +160,8 @@
 					</div>
 
 					{% include 'blog/blog-writer.html' %}
+
+					{% postcategories %}
 
 
 					
