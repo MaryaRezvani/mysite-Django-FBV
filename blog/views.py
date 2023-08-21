@@ -16,6 +16,15 @@ def blog_single(request,pid):
     #context ={'title':'bitcoin crashed again!','content':'bitcoin was flying but now grounded as always ','author':'Maryam Rezvani'}
     return render(request,'blog/blog-single.html',context)
 
+def blog_search(request):
+    posts = Post.objects.filter(status=1)
+    if request.method == 'GET':
+        if s := request.GET.get('s'):
+            posts = posts.filter(content__contains = s)
+    
+    context = {'posts':posts}
+    return render(request,'blog/blog-home.html',context)
+
 def test(request):
     # posts = Post.objects.filter(status=1)
     # context = {'posts':posts}
