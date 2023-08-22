@@ -5,14 +5,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>Form test</title>
 </head>
 
 <body>
-    <h1>Testing Page</h1>
-    <!-- <p>{{post.title}}</p> -->
-    <p>test: </p>
-    {% latestposts %}
+    <form action="{% url 'website:test' %}" method="post">
+        {% csrf_token %}
+        <label>name:</label>
+        <input name="name" type="text"><br>
+        <label>email:</label>
+        <input name="email" type="email"><br>
+        <label>subject:</label>
+        <input name="subject" type="text"><br>
+        <label>message:</label>
+        <input name="message" type="text"><br>
+        <button type="submit">submit</button>
+    </form>
 </body>
 
 </html>
