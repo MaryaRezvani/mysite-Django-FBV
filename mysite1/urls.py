@@ -25,7 +25,9 @@ urlpatterns = [
     #path('url address', 'view', 'name' )
     path('accounts/',include('accounts.urls')),
     path('',include('website.urls')),
+    
     path('blog/',include('blog.urls')),
+    path('summernote/',include('django_summernote.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
 
 ]
