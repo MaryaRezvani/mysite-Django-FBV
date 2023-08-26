@@ -19,13 +19,14 @@ from django.urls import path,include
 # from website.views import *
 from django.conf import settings
 from django.conf.urls.static import static
-
+import debug_toolbar
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('url address', 'view', 'name' )
     path('accounts/',include('accounts.urls')),
     path('',include('website.urls')),
     path('blog/',include('blog.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
